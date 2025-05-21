@@ -1,8 +1,7 @@
 import './App.css';
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Unity, { UnityContext } from "react-unity-webgl";
 import PoseDetector from './components/PoseDetector';
-import type { PoseDetectorProps } from './types/pose-detector';
 
 const unityContext = new UnityContext({
   loaderUrl: "Build/Build.loader.js",
