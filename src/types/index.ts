@@ -1,43 +1,15 @@
-export interface Keypoint {
-    x: number;
-    y: number;
-    z?: number;
-    score: number;
-    name?: string;
-}
+// src/types/index.ts
+// 入力関連の型
+export type { InputDirection, KeyStates } from './input';
 
-export interface Pose {
-    keypoints: Keypoint[];
-    score: number;
-}
+// Unity関連の型
+export type { UnityInstance, UnityWrapperState } from './unity';
+import type { UnityInstance } from './unity';
 
-export interface UnityInstance {
-    send: (gameObjectName: string, methodName: string, parameter?: any) => void;
-    Quit: () => void;
-}
+// ポーズ検出関連の型
+export type { CalibrationPose, PoseDetectorProps, Keypoint, Pose } from './pose';
 
-export interface InputData {
-    horizontal: number;
-    vertical: number;
-}
-
-export interface ShoulderPosition {
-    x: number;
-    y: number;
-}
-
-
-export interface PoseDetectorProps {
-    unityContext: UnityInstance | null;
-}
-
-
-export interface UnityWrapperState {
-    unityInstance: UnityInstance | null;
-    isLoaded: boolean;
-}
-
-
+// グローバル型定義
 declare global {
     interface Window {
         unityInstance: UnityInstance | null;
