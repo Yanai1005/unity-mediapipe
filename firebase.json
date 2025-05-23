@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "greendme-unity",
+    "site": "unity-greendme",
     "public": "dist",
     "ignore": [
       "firebase.json",
