@@ -1,11 +1,17 @@
 {
   "hosting": {
-    "site": "unity-greendme",
+    "site": "greendme-unity",
     "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }
