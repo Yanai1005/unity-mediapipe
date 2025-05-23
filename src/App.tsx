@@ -4,10 +4,10 @@ import Unity, { UnityContext } from "react-unity-webgl";
 import PoseDetector from './components/PoseDetector';
 
 const unityContext = new UnityContext({
-  loaderUrl: "Build/Build.loader.js",
-  dataUrl: "Build/Build.data",
-  frameworkUrl: "Build/Build.framework.js",
-  codeUrl: "Build/Build.wasm",
+  loaderUrl: "/Build/Build.loader.js",
+  dataUrl: "/Build/Build.data",
+  frameworkUrl: "/Build/Build.framework.js",
+  codeUrl: "/Build/Build.wasm",
 });
 
 function App() {
