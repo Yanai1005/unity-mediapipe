@@ -67,7 +67,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Unity体の傾き制御（改良版）</h1>
+        <h1>問題を解決しよう</h1>
         {!isUnityInitialized ? (
           <div style={{ textAlign: 'center', padding: '20px' }}>
             <p>画面をクリックしてUnityを初期化してください</p>

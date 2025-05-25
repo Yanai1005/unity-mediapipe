@@ -1,4 +1,3 @@
-// src/components/PoseDetectorRefactored.tsx
 import { useRef, useEffect } from 'react';
 import Webcam from 'react-webcam';
 import { usePoseDetection } from '../hooks/usePoseDetection';

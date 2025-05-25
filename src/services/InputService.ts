@@ -45,7 +45,6 @@ export class InputService {
     }
 
     public processPoseInput(direction: InputDirection): InputDirection {
-        // より滑らかな制御のためにしきい値を調整
         const threshold = 0.1;
         const sensitivity = 1.5;
 

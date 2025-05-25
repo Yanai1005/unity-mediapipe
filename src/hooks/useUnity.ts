@@ -28,7 +28,6 @@ export const useUnity = () => {
     const sendMovementToUnity = useCallback((direction: InputDirection) => {
         if (!isUnityReady || !unityServiceRef.current) return;
 
-        // より頻繁に更新するために、小さな変化でも送信
         const deltaThreshold = 0.05;
         if (Math.abs(direction.x - movementStateRef.current.x) > deltaThreshold ||
             Math.abs(direction.y - movementStateRef.current.y) > deltaThreshold) {
