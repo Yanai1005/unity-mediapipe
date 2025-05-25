@@ -9,7 +9,7 @@ const UnityPlayer = ({ unityContext }: UnityPlayerProps) => {
         return (
             <div style={{
                 width: "1000px",
-                height: "1080px",
+                height: "500px",
                 border: "2px solid black",
                 background: "grey",
                 display: 'flex',
@@ -28,7 +28,7 @@ const UnityPlayer = ({ unityContext }: UnityPlayerProps) => {
             unityContext={unityContext}
             style={{
                 width: "1000px",
-                height: "300px",
+                height: "800px",
                 border: "2px solid black",
                 background: "grey",
                 marginTop: "20px"
