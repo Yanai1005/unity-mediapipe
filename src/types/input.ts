@@ -1,4 +1,3 @@
-// src/types/input.ts
 export interface InputDirection {
     x: number;
     y: number;
