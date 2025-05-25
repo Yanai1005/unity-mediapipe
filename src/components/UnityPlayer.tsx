@@ -27,8 +27,8 @@ const UnityPlayer = ({ unityContext }: UnityPlayerProps) => {
         <Unity
             unityContext={unityContext}
             style={{
-                width: "1000px",
-                height: "800px",
+                width: "700px",
+                height: "500px",
                 border: "2px solid black",
                 background: "grey",
                 marginTop: "20px"
