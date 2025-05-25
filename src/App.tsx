@@ -5,10 +5,8 @@ import { useKeyboardInput } from './hooks/useKeyboardInput';
 import type { InputDirection } from './types/input';
 import UnityPlayer from './components/UnityPlayer';
 import KeyboardControls from './components/KeyboardControls';
-import PoseDetectorRefactored from './components/PoseDetectorRefactored';
 
 const App = () => {
-  const [useBodyControls, setUseBodyControls] = useState(false);
   const [currentDirection, setCurrentDirection] = useState<InputDirection>({ x: 0, y: 0 });
 
   const {
@@ -27,15 +25,9 @@ const App = () => {
   }, [sendMovementToUnity]);
 
   const { getKeyStates } = useKeyboardInput(
-    !useBodyControls && isUnityReady,
+    isUnityReady,
     handleKeyboardInput
   );
-
-  // ポーズ検出からの入力処理
-  const handlePoseInput = useCallback((direction: InputDirection) => {
-    setCurrentDirection(direction);
-    sendMovementToUnity(direction);
-  }, [sendMovementToUnity]);
 
   // Unity初期化のためのユーザー操作監視
   useEffect(() => {
@@ -52,18 +44,6 @@ const App = () => {
     };
   }, [initializeUnity]);
 
-  // 操作モード切り替え時の移動停止
-  useEffect(() => {
-    if (isUnityReady) {
-      stopMovement();
-      setCurrentDirection({ x: 0, y: 0 });
-    }
-  }, [useBodyControls, isUnityReady, stopMovement]);
-
-  const toggleControlMode = useCallback(() => {
-    setUseBodyControls(prev => !prev);
-  }, []);
-
   return (
     <div className="App">
       <header className="App-header">
@@ -74,21 +54,13 @@ const App = () => {
           </div>
         ) : (
           <>
-            <div style={{ margin: '10px', display: 'flex', gap: '10px', justifyContent: 'center', alignItems: 'center' }}>
-              <button
-                onClick={toggleControlMode}
-                style={{
-                  padding: '10px 20px',
-                  backgroundColor: useBodyControls ? '#ff9800' : '#4CAF50',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: 'pointer'
-                }}
-              >
-                {useBodyControls ? 'キーボード操作に切り替え' : '体の傾き操作に切り替え'}
-              </button>
-
+            <div style={{
+              margin: '10px',
+              display: 'flex',
+              gap: '10px',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
               <div style={{
                 padding: '5px 10px',
                 backgroundColor: '#333',
@@ -101,14 +73,7 @@ const App = () => {
             </div>
 
             <main>
-              {useBodyControls ? (
-                <PoseDetectorRefactored
-                  isEnabled={useBodyControls}
-                  onPoseDetected={handlePoseInput}
-                />
-              ) : (
-                <KeyboardControls keyStates={getKeyStates()} />
-              )}
+              <KeyboardControls keyStates={getKeyStates()} />
 
               <div className="unity-container">
                 <UnityPlayer unityContext={getUnityContext()} />

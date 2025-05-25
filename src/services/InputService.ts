@@ -43,22 +43,4 @@ export class InputService {
     public getKeyStates(): KeyStates {
         return { ...this.keyStates };
     }
-
-    public processPoseInput(direction: InputDirection): InputDirection {
-        const threshold = 0.1;
-        const sensitivity = 1.5;
-
-        let x = 0;
-        let y = 0;
-
-        if (Math.abs(direction.x) > threshold) {
-            x = Math.sign(direction.x) * Math.min(Math.abs(direction.x) * sensitivity, 1);
-        }
-
-        if (Math.abs(direction.y) > threshold) {
-            y = Math.sign(direction.y) * Math.min(Math.abs(direction.y) * sensitivity, 1);
-        }
-
-        return { x, y };
-    }
 }
