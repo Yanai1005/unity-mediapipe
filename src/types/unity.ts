@@ -1,4 +1,3 @@
-// src/types/unity.ts
 export interface UnityInstance {
     send: (gameObjectName: string, methodName: string, parameter?: any) => void;
     Quit: () => void;

@@ -1,4 +1,3 @@
-// src/types/pose.ts
 export interface CalibrationPose {
     shoulderWidth: number;
     shoulderCenter: {
